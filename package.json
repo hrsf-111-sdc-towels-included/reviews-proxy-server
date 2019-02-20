@@ -1,0 +1,25 @@
+{
+  "name": "booking-proxy-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeConcierge/booking-proxy-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CodeConcierge/booking-proxy-server/issues"
+  },
+  "homepage": "https://github.com/CodeConcierge/booking-proxy-server#readme",
+  "scripts": {
+    "start": "nodemon server/index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "nodemon": "^1.18.9"
+  }
+}
