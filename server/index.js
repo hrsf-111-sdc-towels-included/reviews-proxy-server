@@ -4,9 +4,8 @@ const path = require('path');
 const proxy = require('http-proxy-middleware');
 
 const app = express();
-const PORT = 3000;
+const PORT = 80;
 
-app.use(express.json());
 app.use(express.static(path.join(__dirname, '/../public')));
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -14,18 +13,12 @@ app.use(function(req, res, next) {
   next();
 });
 
-const proxyTable = {
-  '/reviews': 'http://localhost:3004',
-};
+const apiProxy = proxy('/reviews/*', { target: 'http://ec2-18-220-181-57.us-east-2.compute.amazonaws.com' });
+app.use(apiProxy);
 
-const options = {
-  target: '/',
-  router: proxyTable,
-};
-
-const myProxy = proxy(options);
-
-app.use(myProxy);
+app.get('/*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../public/index.html'));
+});
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
