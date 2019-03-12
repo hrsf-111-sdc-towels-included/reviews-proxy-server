@@ -15,11 +15,16 @@
   },
   "homepage": "https://github.com/CodeConcierge/booking-proxy-server#readme",
   "scripts": {
-    "start": "nodemon server/index.js"
+    "start": "node server/index.js"
   },
   "dependencies": {
-    "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "http-proxy-middleware": "^0.19.1",
+    "newrelic": "^5.6.0",
     "nodemon": "^1.18.9"
+  },
+  "devDependencies": {
+    "faker": "^4.1.0",
+    "moment": "^2.24.0"
   }
 }
