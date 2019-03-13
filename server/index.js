@@ -16,8 +16,9 @@ app.use(function(req, res, next) {
 const apiProxy = proxy('/reviews/*', { target: 'http://ec2-18-224-182-68.us-east-2.compute.amazonaws.com' });
 app.use(apiProxy);
 
-app.get('/*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../public/index.html'));
+app.get('/:homeID', (req, res) => {
+  const { homeID } = req.params;
+  res.redirect(`/index.html?homeID=${homeID}`);
 });
 
 app.listen(PORT, () => {
