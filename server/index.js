@@ -13,7 +13,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-const apiProxy = proxy('/reviews/*', { target: 'http://ec2-18-220-181-57.us-east-2.compute.amazonaws.com' });
+const apiProxy = proxy('/reviews/*', { target: 'ec2-18-224-182-68.us-east-2.compute.amazonaws.com' });
 app.use(apiProxy);
 
 app.get('/*', (req, res) => {
